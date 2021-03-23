@@ -41,6 +41,10 @@ function main(opt)
     opt = opt or {}
     if is_host("windows") then
         opt.paths = opt.paths or {}
+        table.insert(opt.paths, "$(reg HKEY_CURRENT_USER\\SOFTWARE\\Python\\PythonCore\\3.9\\InstallPath;ExecutablePath)")
+        table.insert(opt.paths, "$(reg HKEY_CURRENT_USER\\SOFTWARE\\Python\\PythonCore\\3.9-32\\InstallPath;ExecutablePath)")
+        table.insert(opt.paths, "$(reg HKEY_CURRENT_USER\\SOFTWARE\\Python\\PythonCore\\3.8\\InstallPath;ExecutablePath)")
+        table.insert(opt.paths, "$(reg HKEY_CURRENT_USER\\SOFTWARE\\Python\\PythonCore\\3.8-32\\InstallPath;ExecutablePath)")
         table.insert(opt.paths, "$(reg HKEY_CURRENT_USER\\SOFTWARE\\Python\\PythonCore\\3.7\\InstallPath;ExecutablePath)")
         table.insert(opt.paths, "$(reg HKEY_CURRENT_USER\\SOFTWARE\\Python\\PythonCore\\3.7-32\\InstallPath;ExecutablePath)")
         table.insert(opt.paths, "$(reg HKEY_CURRENT_USER\\SOFTWARE\\Python\\PythonCore\\3.6\\InstallPath;ExecutablePath)")
